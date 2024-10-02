@@ -211,6 +211,8 @@ After this, we recommend the following progression of modules:
 * `Course.Functor`
 * `Course.Applicative`
 * `Course.Monad`
+
+-- The things we'll skip for now
 * `Course.FileIO`
 * `Course.State`
 * `Course.StateT`
@@ -223,6 +225,8 @@ After this, we recommend the following progression of modules:
 * `Course.Parser` *(see also `Course.Person` for the parsing rules)*
 * `Course.MoreParser`
 * `Course.JsonParser`
+-- End skipping
+
 * `Course.Interactive`
 * `Course.Anagrams`
 * `Course.FastAnagrams`

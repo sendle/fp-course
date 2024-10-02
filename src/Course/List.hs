@@ -37,6 +37,10 @@ data List t =
   | t :. List t
   deriving (Eq, Ord)
 
+-- 1 :. 2 :. 3 :. Nil
+-- 1 :. (2 :. (3 :. Nil))
+
+
 -- Right-associative
 infixr 5 :.
 
@@ -76,8 +80,8 @@ headOr ::
   a
   -> List a
   -> a
-headOr =
-  error "todo: Course.List#headOr"
+headOr default' Nil = default'
+headOr default' (head :. tail) = head
 
 -- | The product of the elements of a list.
 --
@@ -92,8 +96,11 @@ headOr =
 product ::
   List Int
   -> Int
-product =
-  error "todo: Course.List#product"
+-- foldRight :: (a -> b -> b) -> b -> List a -> b
+
+-- >> :t foldRight (+) 0
+-- foldRight (+) 0 :: Num b => List b -> b
+product = foldRight (*) 1
 
 -- | Sum the elements of the list.
 --
@@ -107,8 +114,7 @@ product =
 sum ::
   List Int
   -> Int
-sum =
-  error "todo: Course.List#sum"
+sum = foldRight (+) 0
 
 -- | Return the length of the list.
 --

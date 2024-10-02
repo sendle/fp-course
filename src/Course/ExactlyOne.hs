@@ -8,7 +8,25 @@ import qualified Control.Monad as M
 import Course.Core
 import qualified Prelude as P
 
-data ExactlyOne a = ExactlyOne a deriving (Eq, Show)
+
+name :: P.String
+name = "Alex"
+
+greeting :: P.String -> P.String
+greeting name = "Hello, " ++ name
+  where (++) = (P.++)
+
+add :: Int -> Int -> Int
+-- add a b = a + b
+-- add a = (a+)
+-- add x = \y -> x + y
+add a = (+) a
+-- add = (+)
+
+
+
+data ExactlyOne a = ExactlyOne a 
+  deriving (Eq, Show)
 
 runExactlyOne :: ExactlyOne a -> a
 runExactlyOne (ExactlyOne a) = a
