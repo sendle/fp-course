@@ -102,6 +102,7 @@ optional ::
   b
 optional f default' Empty = default'
 optional f default' (Full value) = f value
+
 -- optional f default' opt = fullOr default' (mapOptional f opt)
 
 applyOptional :: Optional (a -> b) -> Optional a -> Optional b
