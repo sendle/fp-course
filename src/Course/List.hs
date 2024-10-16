@@ -333,11 +333,8 @@ processPayment' setting = do
 --
 -- >>> lengthGT4 infinity
 -- True
-lengthGT4 ::
-  List a ->
-  Bool
-lengthGT4 =
-  error "todo: Course.List#lengthGT4"
+lengthGT4 :: List a -> Bool
+lengthGT4 = foldRight (\(i, _) acc -> i > 3 || acc) False . zip infinity
 
 -- | Reverse a list.
 --
@@ -353,8 +350,9 @@ lengthGT4 =
 reverse ::
   List a ->
   List a
-reverse =
-  error "todo: Course.List#reverse"
+-- reverse = foldRight (\x xs -> xs ++ (x :. Nil)) Nil
+-- reverse = foldLeft (\xs x -> x :. xs) Nil
+reverse = foldLeft (flip (:.)) Nil
 
 -- | Produce an infinite `List` that seeds with the given value at its head,
 -- then runs the given function for subsequent elements
